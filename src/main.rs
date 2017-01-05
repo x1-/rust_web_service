@@ -7,7 +7,7 @@ use iron::status;
 use iron::headers::ContentType;
 use iron::prelude::*;
 
-use rustc_serialize::base64::{self, ToBase64};
+use rustc_serialize::base64::FromBase64;
 use rustc_serialize::json;
 
 mod routing;
@@ -29,7 +29,7 @@ fn json(_: &mut Request) -> IronResult<Response> {
 
 fn gif(_: &mut Request) -> IronResult<Response> {
     let px1 = "R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
-    Ok(Response::with((mime!(Image/Gif), status::Ok, px1.as_bytes().to_base64(base64::STANDARD))))
+    Ok(Response::with((mime!(Image/Gif), status::Ok, px1.from_base64().unwrap())))
 }
 
 fn bad(_: &mut Request) -> IronResult<Response> {
