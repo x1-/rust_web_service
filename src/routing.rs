@@ -1,5 +1,3 @@
-extern crate iron;
-
 use std::collections::HashMap;
 
 use iron::{Handler};
