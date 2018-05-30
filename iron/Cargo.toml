@@ -1,7 +1,11 @@
 [package]
-name = "rust_web_service"
-version = "0.1.0"
+name = "rust_web_service_iron"
+version = "0.2.0"
 authors = ["x1- <viva008@gmail.com>"]
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
 
 [dependencies]
 mime = "*"
